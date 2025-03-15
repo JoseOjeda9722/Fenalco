@@ -1,0 +1,2 @@
+pandas==2.8.2 # -> agrego pandas para el manejo de los datos en el archivo excel  
+openpyxl==3.1.5 # -> para manejo de archivos
