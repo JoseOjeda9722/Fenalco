@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vista Formulario -->
+    <record id="view_excel_upload_form" model="ir.ui.view">
+        <field name="name">excel.upload.form</field>
+        <field name="model">excel.upload</field>
+        <field name="arch" type="xml">
+            <form string="Carga de Archivo Excel">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="excel_archivo"/>
+                        <field name="convertido_archivo" widget="text" readonly="1"/>
+                        <field name="archivo_tranformado" readonly="1"/>
+                        <field name="archivo_tranformado_name" invisible="1"/>
+                    </group>
+                    <group>
+                        <button name="get_file_process" type="object" string="Procesar Archivo" class="btn-primary"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista -->
+    <record id="view_excel_upload_tree" model="ir.ui.view">
+        <field name="name">excel.upload.tree</field>
+        <field name="model">excel.upload</field>
+        <field name="arch" type="xml">
+            <tree string="Archivos Subidos">
+                <field name="name"/>
+                <field name="convertido_archivo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_excel_upload" model="ir.actions.act_window">
+        <field name="name">Carga de Excel</field>
+        <field name="res_model">excel.upload</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_excel_upload_root" name="Carga de Excel" sequence="10"/>
+    <menuitem id="menu_excel_upload" name="Subir Archivos"
+              parent="menu_excel_upload_root" action="action_excel_upload"/>
+
+</odoo>
